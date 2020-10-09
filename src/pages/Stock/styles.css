@@ -1,0 +1,13 @@
+.sales-found {
+  display: flex;
+  align-items: center;
+  min-width: 62.5%;
+  color: var(--color-title);
+  font-size: 1.875rem;
+}
+
+.sales-found strong{
+  color: var(--color-subtitle);
+  margin-left: 0.35rem;
+  margin-right: 0.35rem;
+}

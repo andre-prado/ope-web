@@ -1,0 +1,114 @@
+.selected-items {
+  display: flex;
+  justify-content: center;
+  margin-top: 1px;
+  min-width: 970px;
+}
+
+.selected-items-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 84.8%;
+  
+  height: 6rem;
+  background-color: var(--color-main);
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 10%;
+  margin-left: 20px;
+}
+
+.checkbox-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selected-text {
+  color: var(--color-text);
+  margin-left: 8px;
+}
+
+.buttons-conteiner {
+  margin-right: 20px;
+}
+
+.buttons-conteiner button {
+  margin-left: 20px;
+  background-color: #FFF;
+  padding: 9px;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 500;
+  transition: 0.4s;
+  font-size: 1.8rem;
+}
+
+.buttons-conteiner button:hover {
+  background-color: #CECECE;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Modal Styles*/
+
+.register-book-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #FFF;
+  
+  background-color: var(--color-main);
+}
+
+.form-add-item {
+  height: 60%;
+}
+
+.form-add-item form {
+  display: flex;
+  justify-content: space-between;
+  height: 95%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-add-item form label {
+  width: 300px;
+  text-align: center;
+  background-color: var(--color-main);
+  color: #FFF;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.form-add-item form input {
+  width: 300px;
+  padding: 2px;
+  margin-top: 5px ;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.register-book-buttons {
+  display: flex;
+  width: 44%;
+  height: 90px;
+}
+
+.register-book-buttons button {
+  width: 120px;
+  padding: 10px;
+
+  background-color: var(--color-main);
+  color: #fff;
+  border-radius: 10px;
+}

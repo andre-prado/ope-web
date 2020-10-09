@@ -1,0 +1,73 @@
+.stock-search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 970px;
+}
+
+.stock-search-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 84.8%;
+  height: 7.87rem;
+  color: var(--color-text);
+  background-color: var(--color-main);
+
+  border-radius: 10px 10px 0 0;
+}
+
+.stock-search-content .input {
+  min-width: 20%;
+  margin-left: 20px;
+}
+
+.stock-search-content input {
+  padding: 5px;
+  border-radius: 2rem;
+
+  border: none;
+  color: var(--color-input);
+  margin-right: 20px;
+}
+
+.stock-search .stock-search-content input:focus {
+  outline: none;
+}
+
+.stock-search .stock-search-content ::placeholder {
+  color: var(--color-input);
+}
+
+.shop-cart {
+  display: flex;
+  align-items: center;
+
+  min-width: 20%;
+  margin-left: 10px;
+}
+
+.shop-cart .itens {
+  margin-right: 10px;
+}
+
+.stock-search-content .button {
+  margin-right: 20px;
+}
+
+.stock-search .stock-search-content button {
+  width: 10.31rem;
+  height: 3.25rem;
+  background-color: var(--color-background);
+  color: var(--color-subtitle);
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s;
+  border-radius: 2rem;
+}
+
+.stock-search .stock-search-content button:hover {
+  background-color: var(--color-title);
+  color: var(--color-text);
+}

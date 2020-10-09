@@ -1,0 +1,50 @@
+:root {
+  --color-main: #4090CF;
+  --color-column: #1e6499;
+  --color-text: #FFFFFF;
+  --color-title: #B5B5B5;
+  --color-input:  #B5B5B5;
+  --color-subtitle: #000;
+  --color-border-book: #8FADE9;
+  --color-checkbox-book: #459FCF;
+  --color-background: #FFF;
+  font-size: 60%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html  {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 970px;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+#root {
+  /* display: flex; */
+  /* align-items: center; */
+  justify-content: center;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 1.6rem Quicksand;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+}

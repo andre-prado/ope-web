@@ -1,0 +1,125 @@
+.book-stock {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 970px;
+  height: 33.9rem;
+  margin-top: 20px;
+}
+
+.book-stock-container {
+  display: flex;
+  width: 84.8%;
+  height: 78.8%;
+  border-bottom: 1px solid #E4E4E4;
+  margin-left: 15px;
+}
+
+.check-box input{
+  margin-left: 10px;
+}
+
+
+.book-img img {
+  height: 94%;
+  width: 200px;
+  margin-top: 1px;
+}
+
+.column {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 94%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 50%;
+  height: 94%;
+}
+
+.left-book {
+  margin-left: 5px;
+}
+
+.cart-discount {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+
+.add-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 200px;
+  height: 40px;
+  padding: 5px;
+  
+  font-size: 16px;
+  
+  background-color: #4090CF;
+  color: var(--color-text);
+  margin-top: 1px;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: 0.4s;
+}
+
+.add-cart:hover {
+  background-color: #cecece;
+}
+
+.descount {
+  padding: 1px;
+  border-radius: 2px;
+  width: 80%;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: 5px;
+}
+
+/* Styles for Column Component */
+.column-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  min-width: 70px;
+  height: 40px;
+  background-color: #4090CF;
+  color: var(--color-text);
+  padding: 5px;
+  margin-top: 1px;
+  font-size: 16px;
+}
+
+.column-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  min-width: 400px;
+  height: 40px;
+  
+  background-color: #4090CF;
+  color: var(--color-text);
+  padding: 5px;
+
+  font-size: 16px;
+  margin-left: 2px;
+  margin-top: 1px;
+}
+

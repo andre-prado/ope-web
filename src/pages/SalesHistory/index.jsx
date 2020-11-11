@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import PageTitle from '../../components/PageTitle';
 import api from '../../services/api';
-import { formatPrice } from '../../util/format';
 
 import './styles.css';
 
@@ -23,10 +22,10 @@ function SalesHistory() {
     api.get('/venda').then((response) => {
       const data = response.data.map((venda) => ({
         ...venda,
-        priceFormatted: formatPrice(venda.total),
-        dataFormatted: venda.data_venda.split(' '),
+        dataFormatted: venda.data.split(' '),
       }));
 
+      console.log(data);
       setVendas(data);
     });
   }, []);
@@ -41,7 +40,7 @@ function SalesHistory() {
             <tr>
               <th>DATA</th>
               <th>HORA</th>
-              <th>TOTAL</th>
+              <th>FORMA DE PAGAMENTO</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +53,7 @@ function SalesHistory() {
                   <span>{venda.dataFormatted[1]}</span>
                 </td>
                 <td>
-                  <span>{venda.priceFormatted}</span>
+                  <span>{venda.tipo_pagamento}</span>
                 </td>
                 <td>
                   <button

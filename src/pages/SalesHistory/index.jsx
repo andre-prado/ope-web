@@ -1,40 +1,82 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import Header from '../../components/Header';
 import PageTitle from '../../components/PageTitle';
-
-import DayRow from './DayRow';
+import api from '../../services/api';
+import { formatPrice } from '../../util/format';
 
 import './styles.css';
 
+import Modal from '../../components/Modal/Modal';
+
 function SalesHistory() {
+  const [vendas, setVendas] = useState([]);
+  const [vendaId, setVendasId] = useState();
+  const [visible, setVisible] = useState(false);
+
+  const handleVisible = (id) => {
+    setVendasId(id);
+    setVisible(!visible);
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    api.get('/venda').then((response) => {
+      const data = response.data.map((venda) => ({
+        ...venda,
+        priceFormatted: formatPrice(venda.total),
+        dataFormatted: venda.data_venda.split(' '),
+      }));
+
+      setVendas(data);
+    });
+  }, []);
+
   return (
     <>
-      <Header />
-      <PageTitle title="Agosto" year="2020" subtitle="Vendas"/>
-      
-      <div className="sales-history-container">
-        <div className="sales-history">
-          <div className="day sales-history-color">
-            Dia
-          </div>
-          <div className="amount-items sales-history-color">
-            Vendas
-          </div>
-          <div className="value sales-history-color">
-            Receita 
-          </div>
-        </div>
-      </div>
+      <PageTitle title="Vendas" subtitle="Totais" />
 
-      <DayRow day={1} amount={22} value={125.5}/>
-      <DayRow day={2} amount={20} value={100.3}/>
-      <DayRow day={3} amount={19} value={127.5}/>
-      <DayRow day={4} amount={25} value={200.1}/>
-      <DayRow day={5} amount={21} value={180.6}/>
-      <DayRow day={6} amount={24} value={300.1}/>
-      <DayRow day={7} amount={17} value={78.5}/>
-      <DayRow day={8} amount={8} value={125.8}/>
+      <div className="container">
+        <table className="vendas-table">
+          <thead>
+            <tr>
+              <th>DATA</th>
+              <th>HORA</th>
+              <th>TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            {vendas.map((venda) => (
+              <tr key={venda.id}>
+                <td>
+                  <span>{venda.dataFormatted[0]}</span>
+                </td>
+                <td>
+                  <span>{venda.dataFormatted[1]}</span>
+                </td>
+                <td>
+                  <span>{venda.priceFormatted}</span>
+                </td>
+                <td>
+                  <button
+                    onClick={() => {
+                      handleVisible(venda.id);
+                    }}
+                  >
+                    Ver detalhes
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {visible ? (
+          <Modal
+            vendas={vendas}
+            vendaId={vendaId}
+            onClose={() => setVisible(false)}
+          />
+        ) : null}
+      </div>
     </>
   );
 }

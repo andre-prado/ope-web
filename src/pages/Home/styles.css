@@ -1,0 +1,102 @@
+.sales-found {
+  display: flex;
+  align-items: center;
+  min-width: 62.5%;
+  color: var(--color-title);
+  font-size: 1.875rem;
+}
+
+.sales-found strong {
+  color: var(--color-subtitle);
+  margin-left: 0.35rem;
+  margin-right: 0.35rem;
+}
+
+.book-stock {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 0 80px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  list-style: none;
+}
+
+.book-stock li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.book-stock img {
+  align-self: center;
+  max-width: 250px;
+  max-height: 200px;
+}
+
+.book-stock li strong {
+  font-size: 20px;
+  line-height: 20px;
+  color: #333;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.book-stock li .preco-livro {
+  font-size: 21px;
+  font-weight: bold;
+  margin: 5px 0 20px;
+}
+
+.book-stock li .add-cart {
+  background: var(--color-main);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.book-stock li .add-cart:hover {
+  background: var(--color-column);
+}
+
+.book-stock li button div {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.book-stock li button div svg {
+  margin-right: 5px;
+}
+
+.book-stock li button span {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.book-stock .delete-button {
+  width: 50px;
+  background: none;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+  margin-left: 0;
+}

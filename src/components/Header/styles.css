@@ -1,15 +1,13 @@
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-start;
-  min-width: 100vw;
-  min-height: 7vh;
-  background-color: #4090CF;
+  height: 50px;
+  background-color: #4090cf;
 }
 
-
 .dropbtn {
-  color: #FFF;
+  color: #fff;
   /* font-weight: 400; */
   padding: 5px;
   font-size: 3.5rem;
@@ -25,9 +23,9 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #F1f1f1;
+  background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -38,9 +36,13 @@
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* .dropdown:hover .dropbtn {color:#C4C4C4; background-color: white;} */
 
@@ -58,4 +60,31 @@
 
 .dropdown:hover .menu-close {
   display: none;
+}
+
+.cart-itens {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  margin: 3.125rem;
+}
+
+.cart-itens:hover {
+  opacity: 0.7s;
+}
+
+.cart-itens div {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.cart-itens div strong {
+  display: block;
+  color: #fff;
+}
+
+.cart-itens div span {
+  font-size: 14px;
+  color: #fff;
 }

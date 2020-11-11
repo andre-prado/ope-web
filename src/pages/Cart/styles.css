@@ -1,0 +1,107 @@
+.container {
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.container footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container footer button {
+  background: #4090cf;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.container footer button:hover {
+  background: var(--color-column);
+}
+
+.product-table {
+  width: 100%;
+}
+
+.product-table thead th {
+  color: #999;
+  text-align: left;
+  padding: 12px;
+}
+
+.product-table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-table img {
+  height: 150px;
+}
+
+.product-table strong {
+  color: #333;
+  display: block;
+}
+
+.product-table span {
+  display: block;
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-table div {
+  display: flex;
+  align-items: center;
+}
+
+.product-table div input {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #666;
+  padding: 6px;
+  width: 50px;
+}
+
+.product-table button {
+  background: none;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+}
+
+.total span {
+  color: #999;
+  font-weight: bold;
+}
+
+.total strong {
+  font-size: 28px;
+  margin-left: 5px;
+}
+
+.carrinho-vazio {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+footer select {
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #999;
+  outline: 0;
+  padding: 0 10px;
+}

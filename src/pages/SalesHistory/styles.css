@@ -1,38 +1,36 @@
-.sales-history-container {
-  display: flex;
-  justify-content: center;
+.container {
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.vendas-table {
   width: 100%;
-  min-width: 970px;
-
 }
 
-.sales-history-container .sales-history {
-  display: flex;
-  width: 84.8%;
-  height: 40px;
-  margin-bottom: 1px;
+.vendas-table thead th {
+  color: #999;
+  text-align: center;
+  padding: 12px;
 }
 
-.sales-history-color {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: var(--color-main);
-  color: var(--color-text);
-  font-size: 1.6rem;
-  margin-right: 2px;
+.vendas-table tbody td {
+  text-align: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
 }
 
-.sales-history-container .sales-history .day {
-  width: 5%;
-  height: 100%;
+.vendas-table button {
+  background: #4090cf;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
 }
-.sales-history-container .sales-history .amount-items {
-  width: 30%;
-  height: 100%;
-}
-.sales-history-container .sales-history .value {
-  width: 30%;
-  height: 100%;
+
+.vendas-table button:hover {
+  background: var(--color-column);
 }

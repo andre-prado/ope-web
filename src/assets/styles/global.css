@@ -1,13 +1,13 @@
 :root {
-  --color-main: #4090CF;
+  --color-main: #4090cf;
   --color-column: #1e6499;
-  --color-text: #FFFFFF;
-  --color-title: #B5B5B5;
-  --color-input:  #B5B5B5;
+  --color-text: #ffffff;
+  --color-title: #b5b5b5;
+  --color-input: #b5b5b5;
   --color-subtitle: #000;
-  --color-border-book: #8FADE9;
-  --color-checkbox-book: #459FCF;
-  --color-background: #FFF;
+  --color-border-book: #8fade9;
+  --color-checkbox-book: #459fcf;
+  --color-background: #fff;
   font-size: 60%;
 }
 
@@ -17,11 +17,10 @@
   box-sizing: border-box;
 }
 
-body, html  {
+body,
+html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  min-height: 970px;
 }
 
 body {

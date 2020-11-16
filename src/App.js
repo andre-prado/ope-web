@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 
 import './config/ReactotronConfig';
 
-import Header from '../src/components/Header';
 import Routes from './routes';
 
 import store from './store';
@@ -17,7 +16,6 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header />
         <Routes />
         <ToastContainer autoClose={3000} />
       </BrowserRouter>

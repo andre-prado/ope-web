@@ -1,0 +1,66 @@
+.container-edit {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 212, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 255, 1) 13%,
+    rgba(44, 165, 222, 1) 49%,
+    rgba(64, 144, 207, 1) 88%
+  );
+}
+
+.edit-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-content form h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  color: var(--color-main);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.edit-content form label {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--color-main);
+}
+
+.edit-content form input {
+  width: 300px;
+  padding: 2px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.edit-button {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.edit-button button {
+  width: 120px;
+  height: 50px;
+  padding: 10px;
+  border: 0;
+
+  background-color: var(--color-main);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}

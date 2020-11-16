@@ -12,19 +12,17 @@ import PageTitle from '../../components/PageTitle';
 
 import { formatPrice } from '../../util/format';
 
+import Header from '../../components/Header';
 import api from '../../services/api';
 
 import './styles.css';
 import { Link, useHistory } from 'react-router-dom';
 
-function Cart({
-  cart,
-  removeFromCart,
-  totalFormatted,
-  updateAmountRequest,
-  total,
-}) {
+function Cart({ cart, removeFromCart, updateAmountRequest, total }) {
+  const [desconto, setDesconto] = useState();
   const history = useHistory();
+  const descontoZero = desconto ? desconto : 0;
+  const totalCompra = formatPrice(total - descontoZero);
 
   const [tipoPagamento, setTipoPagamento] = useState('');
 
@@ -43,14 +41,14 @@ function Cart({
       preco_item: livro.preco,
     }));
 
+    const descontAdd = desconto ? Number(desconto) : 0;
+
     const data = {
-      desconto: 0,
+      desconto: descontAdd,
       produtos: itens,
       id_pagamento: tipoPagamento,
-      valor_total: Number(total),
+      valor_total: Number(total) - Number(descontAdd),
     };
-
-    console.log(data);
 
     api
       .post('venda', data)
@@ -59,7 +57,7 @@ function Cart({
 
         cart.forEach((livro) => removeFromCart(livro.id));
 
-        history.push('/');
+        history.push('/home');
       })
       .catch(() => {
         alert('Erro na venda');
@@ -70,6 +68,7 @@ function Cart({
 
   return (
     <>
+      <Header />
       <PageTitle title="Produtos no" subtitle="Carrinho" />
       <div className="container">
         <table className="product-table">
@@ -80,7 +79,7 @@ function Cart({
               <th>QTD</th>
               <th>SUBTOTAL</th>
               <th>
-                <Link to="/">
+                <Link to="/home">
                   <MdAddShoppingCart size={30} color="#4090cf" />
                 </Link>
               </th>
@@ -155,9 +154,17 @@ function Cart({
             Finalizar compra
           </button>
 
+          <input
+            type="text"
+            id="desconto"
+            value={desconto}
+            onChange={(event) => setDesconto(event.target.value)}
+            placeholder="Desconto?"
+          />
+
           <div className="total">
             <span>TOTAL</span>
-            <strong>{totalFormatted}</strong>
+            <strong>{totalCompra}</strong>
           </div>
         </footer>
       </div>
@@ -173,11 +180,6 @@ const mapStateToProps = (state) => ({
   total: state.cart.reduce((total, product) => {
     return total + product.preco * product.amount;
   }, 0),
-  totalFormatted: formatPrice(
-    state.cart.reduce((total, product) => {
-      return total + product.preco * product.amount;
-    }, 0),
-  ),
 });
 
 const mapDispatchToProps = (dispatch) =>

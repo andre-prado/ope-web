@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { MdShoppingBasket } from 'react-icons/md';
-import { TiDeleteOutline } from 'react-icons/ti';
+import { MdShoppingBasket, MdEdit } from 'react-icons/md';
 import ReactLoading from 'react-loading';
+import { Link } from 'react-router-dom';
 
 import * as CartActions from '../../store/modules/cart/actions';
+import * as EditActions from '../../store/modules/edit/actions';
 
+import Header from '../../components/Header';
 import PageTitle from '../../components/PageTitle';
 import SelectedItems from '../../components/SelectedItems';
 
@@ -15,26 +17,9 @@ import api from '../../services/api';
 
 import './styles.css';
 
-function Stock({ addToCartRequest, amount }) {
+function Stock({ actions, amount }) {
   const [livros, setLivros] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  function deleteLivro(livroId) {
-    const id = Number(livroId);
-    if (window.confirm('Tem certeza que deseja excluir o livro?')) {
-      api
-        .delete(`/livro/${id}`)
-        .then(() => {
-          alert('Livro deletado!');
-          window.location.reload();
-        })
-        .catch(() => {
-          alert('Erro ao deletar o livro');
-        });
-    } else {
-      return;
-    }
-  }
 
   useEffect(() => {
     api.get('/livros').then((response) => {
@@ -48,12 +33,17 @@ function Stock({ addToCartRequest, amount }) {
     });
   }, []);
 
+  function handleEditProduct(id) {
+    actions.addToEditRequest(id);
+  }
+
   function handleAddProduct(id) {
-    addToCartRequest(id);
+    actions.addToCartRequest(id);
   }
 
   return (
     <>
+      <Header />
       <PageTitle title="Estoque" subtitle="Produtos">
         <div className="sales-found">
           Foram encontrados <strong>{livros.length}</strong> itens
@@ -75,11 +65,12 @@ function Stock({ addToCartRequest, amount }) {
           return (
             <li key={livro.id}>
               <button
-                type="button"
-                className="delete-button"
-                onClick={() => deleteLivro(livro.id)}
+                className="edit-livro"
+                onClick={() => handleEditProduct(livro.id)}
               >
-                <TiDeleteOutline size={20} color={'#F85B48'} />
+                <Link to="/edit-livro">
+                  <MdEdit size={26} color="#000" />
+                </Link>
               </button>
               <img src={livro.foto} alt="Foto" />
               <strong>{livro.titulo}</strong>
@@ -116,7 +107,11 @@ const mapStateToProps = (state) => ({
   }, {}),
 });
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators(CartActions, dispatch);
+const mapDispatchToProps = (dispatch) => {
+  const actions = Object.assign({}, CartActions, EditActions);
+  return {
+    actions: bindActionCreators(actions, dispatch),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stock);

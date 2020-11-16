@@ -5,7 +5,10 @@ import api from '../../services/api';
 
 import './styles.css';
 
-import Modal from '../../components/Modal/Modal';
+import Header from '../../components/Header';
+import Modal from '../../components/Modal';
+
+import { formatPrice } from '../../util/format';
 
 function SalesHistory() {
   const [vendas, setVendas] = useState([]);
@@ -25,13 +28,18 @@ function SalesHistory() {
         dataFormatted: venda.data.split(' '),
       }));
 
-      console.log(data);
       setVendas(data);
     });
   }, []);
 
+  let venda = vendas.find((venda) => {
+    const vendaFind = venda.id === vendaId;
+    return vendaFind;
+  });
+
   return (
     <>
+      <Header />
       <PageTitle title="Vendas" subtitle="Totais" />
 
       <div className="container">
@@ -69,11 +77,38 @@ function SalesHistory() {
           </tbody>
         </table>
         {visible ? (
-          <Modal
-            vendas={vendas}
-            vendaId={vendaId}
-            onClose={() => setVisible(false)}
-          />
+          <Modal onClose={() => setVisible(false)}>
+            <table className="venda-table">
+              <thead>
+                <tr>
+                  <th>LIVRO</th>
+                  <th>QUANTIDADE</th>
+                  <th>PRECO UNIDADE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {venda
+                  ? venda.produtos.map((produto, index) => (
+                      <tr key={index}>
+                        <td>
+                          <span>{produto.livro}</span>
+                        </td>
+                        <td>
+                          <span>{produto.quantidade}</span>
+                        </td>
+                        <td>
+                          <span>{produto.preco_item}</span>
+                        </td>
+                      </tr>
+                    ))
+                  : null}
+              </tbody>
+            </table>
+            <footer>
+              <span>TOTAL: {formatPrice(venda.total)}</span>
+              <sub>Desconto: {formatPrice(venda.desconto)}</sub>
+            </footer>{' '}
+          </Modal>
         ) : null}
       </div>
     </>
